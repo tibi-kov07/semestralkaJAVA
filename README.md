@@ -1,0 +1,2 @@
+# semestralkaJAVA
+Semestrálna práca
