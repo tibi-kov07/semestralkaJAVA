@@ -1,6 +1,7 @@
 package logika;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 public class CommandHandler implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -128,6 +129,65 @@ public class CommandHandler implements Serializable {
             }
             return;
         }
+
+        if (currentRoom.getId().equals("kotolna") && item.getId().equals("poznamka")) {)) {
+            game.getGameState().setBoilerSolved(true);
+            Item klucTech = new Item("kluc_technicka", "kluc od technickej miestnosti", "Odomkne technickú miestnosť.", false);
+            currentRoom.addItem(klucTech);
+            System.out.println("🔧 Podľa indície si nastavil ventily. Zo skrinky vypadol kľúč od technickej miestnosti!");
+            return;
+        }
+
+        if (currentRoom.getId().equals("chodba") && item.getId().equals("kluc_technicka")) {)) {
+                Room technicka = currentRoom.getExit("technicka");a");
+                if (technicka != null) {
+                    technicka.setLocked(false);
+                    System.out.println("🔓 Odomkol si technickú miestnosť.");
+                }
+                return;
+            }
+
+            if (currentRoom.getId().equals("technicka") && item.getId().equals("skrutkovac")) {)) {
+                game.getGameState().setElectricPanelOpen(true);
+                System.out.println("🛠️ Skrutkovač otvoril kryt elektrického panela.");
+                return;
+            }
+
+            if (currentRoom.getId().equals("technicka") && item.getId().equals("poistka")) {
+                if (!game.getGameState().isElectricPanelOpen()) {
+                    System.out.println("Najprv musíte otvoriť kryt elektrického panela skrutkovačom!");
+                    return;
+                }
+                game.getGameState().setPowerRestored(true);
+                game.getPlayer().removeItem(item);
+                System.out.println("⚡ Po vložení poistky sa obnovilo napájanie budovy.");
+
+                game.getGameState().setExitCodeObtained(true);
+                Document zaznam = new Document("zaznam_z_kamery", "zaznam z kamery", "Odhaľuje, kto priviedol hráča do basementu.", "Záznam z kamery odhaľuje motív únoscu a kód k východu: 4821.", true);
+                game.getPlayer().addItem(zaznam);
+                System.out.println("🎥 Na obrazovke sa prehral záznam z kamery! Získal si záznam z kamery ako dôkaz a kód k východu.");
+                return;
+            }
+
+            System.out.println("Tento predmet tu nevieš takto použiť.");
+
+
+            private void processRead(String itemName) {
+                Optional<Item> itemOpt = game.getPlayer().getItemFromInventory(itemName);
+                if (itemOpt.isPresent() && itemOpt.get() instanceof Document doc) {
+                    System.out.println("📖 OBSAH DOKUMENTU: \"" + doc.getReadableContent() + "\"");
+                } else {
+                    System.out.println("Tento predmet nemá žiadny text na prečítanie.");
+                }
+            }
+
+            private void processTalk(String target) {
+                if (target.equalsIgnoreCase("martin")) {
+                    System.out.println("🗣️ Martin (správca budovy): Tvrdí, že o únose nič nevie, no jeho výpovede si odporujú s nájdenými dôkazmi.");
+                } else {
+                    System.out.println("Tákato postava sa tu nenachádza.");
+                }
+            }
 
 
     }
