@@ -120,7 +120,14 @@ public class CommandHandler implements Serializable {
         Item item= itemOpt.get();
         Room currentRoom = game.getPlayer().getCurrentRoom();
 
-        if (current.getId())
+        if (currentRoom.getId().equals('sklad') && item.getId().equals('poznamka')) {
+            Room chodba = currentRoom.getExit('chodba');
+            if (chodba != null && chodba.isLocked()) {
+                chodba.setLocked(false);
+                System.out.println("Použil si poznámku. Dvere do chodby sú teraz odomknuté.");
+            }
+            return;
+        }
 
 
     }
