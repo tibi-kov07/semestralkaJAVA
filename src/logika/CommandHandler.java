@@ -24,7 +24,7 @@ public class CommandHandler implements Serializable {
               case "pozri" -> System.out.println(game.getPlayer().getCurrentRoom().getDescription());
               case "prohledaj" -> handleSearch();
               case "jdi" -> processMove(argument);
-              case "vezmi" -> processTake(argument);
+              case "vezmi" -> processUse(argument);
               case "inventar" -> handleInventory();
               case "pouzi" -> processUse(argument);
               case "procti" -> processRead(argument);
@@ -52,7 +52,7 @@ public class CommandHandler implements Serializable {
             game.getPlayer().getCurrentRoom().getItems().forEach(item -> System.out.print("[" + item.getName() + "] "));
             System.out.println();
         }
-    }
+   }
 
     private void handleInventory() {
         if (game.getPlayer().getInventory().isEmpty()) {
@@ -73,6 +73,61 @@ public class CommandHandler implements Serializable {
             System.out.println();
         }
     }
+
+    private void processMove(String targetRoom) {
+        if (targetRoom.isEmpty()) {
+            System.out.println("Musíš zadať smer alebo názov miestnosti, kam chceš ísť.");
+            return;
+        }
+        Room current = game.getPlayer().getCurrentRoom();
+        Room nextRoom = current.getExit(targetRoom);
+
+        if (nextRoom == null) {
+            System.out.println("Tadiaľto cesta nevedie.");
+        }
+        if (nextRoom.isLocked()) {
+            System.out.println("Táto miestnosť je zamknutá. Možno potrebuješ kód alebo kľúč.");
+        }
+        if (nextRoom.getId().equals('vystup')){
+            if (game.getGameState().isExitCodeObtained()){
+                game.evaluateAndFinishGame();
+            }
+            else {
+                System.out.println("Nemáš kód k východu. Nemôžeš odísť.");
+            }
+
+            game.getPlayer().setCurrentroom(nextRoom);
+            System.out.println("Nachádzaš sa v: " + nextRoom.getName());
+            System.out.println(nextRoom.getDescription());
+        }
+
+
+    }
+
+
+    public void processUse(String itemName) {
+        if (itemName.isEmpty()) {
+            System.out.println("Musíš zadať názov predmetu, ktorý chceš použiť.");
+            return;
+        }
+
+        Optional<Item> itemOpt = game.getPlayer().getItemFromInventory(itemName);
+        if (itemOpt.isPresent()) {
+            System.out.println("Použil si predmet: " + itemOpt.get().getName());
+
+        }
+
+        Item item= itemOpt.get();
+        Room currentRoom = game.getPlayer().getCurrentRoom();
+
+        if (current.getId())
+
+
+    }
+
+
+
+
 
     private String removeDiacritics(String input) {
         return input.replaceAll("[áä]", "a")
