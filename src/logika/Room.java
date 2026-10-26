@@ -1,4 +1,5 @@
 package logika;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,10 +10,10 @@ public class Room  implements Serializable{
     private static final log serialVersionUID = 1L;
 
     private final String id;
-    private final Sting name;
-    private final String desctiption;
+    private final String name;
+    private final String description;
     private final Map <String, Room> exits; = new HashMap<>();
-    private final List<Item> items; = new ArrayList<>();
+    private final List<logika.Item> items; = new ArrayList<>();
     private boolean locked;
     private String lockRequirementMessage;
 
