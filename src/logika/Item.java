@@ -1,6 +1,8 @@
 package logika;
 
-public abstract class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     private final String id;
     private final String name;
     private final String description;
@@ -23,5 +25,7 @@ public abstract class Item {
         return description;
     }
 
-    public abstract boolean isEvidence();
+    public boolean isEvidence(){
+        return false;
+    }
 }
