@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Room  implements Serializable{
-    private static final log serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     private final String id;
     private final String name;
