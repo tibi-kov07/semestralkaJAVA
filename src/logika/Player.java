@@ -36,4 +36,15 @@ public class Player implements Serializable {
         inventory.remove(item);
     }
 
+    public Optional<Item> getItemFromInventory(String name){
+        return inventory.stream()
+                .filter(item -> item.getName().equalsIgnoreCase(name) || item.getId().equalsIgnoreCase(name))
+                .findFirst();
+    }
+
+    public List<Item> getCollectedEvidences(){
+        return inventory.stream()
+                .filter(Item::isEvidence)
+                .collect(Collectors.toList());
+    }
 }
