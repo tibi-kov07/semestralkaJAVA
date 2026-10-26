@@ -39,7 +39,7 @@ public class Room  implements Serializable{
     }
 
     public void addItem(Item item) {items.add(item);}
-    public removeItem(Item item) {items.remove(item);}
+    public void removeItem(Item item) {items.remove(item);}
     public List<Item> getItems() {return items;}
 
     public String getId(){
@@ -48,9 +48,7 @@ public class Room  implements Serializable{
     public String getName() {
         return name;
     }
-    public String getDesctiption() {
-        return description;
-    }
+    public String getDescription() {return description;}
 
     public boolean isLocked() {
         return locked;
