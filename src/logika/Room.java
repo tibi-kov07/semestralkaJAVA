@@ -12,12 +12,12 @@ public class Room  implements Serializable{
     private final String id;
     private final String name;
     private final String description;
-    private final Map <String, Room> exits; = new HashMap<>();
-    private final List<logika.Item> items; = new ArrayList<>();
+    private final Map<String, Room> exits = new HashMap<>();
+    private final List<Item> items = new ArrayList<>();
     private boolean locked;
     private String lockRequirementMessage;
 
-    public Room(String id, String name, String description, boolean locked, String lockRequirementMessage) {
+    public Room(String id, String name, String description, Map<String, Room> exits, List<Item> items, boolean locked, String lockRequirementMessage) {
         this.id = id;
         this.name = name;
         this.description = description;
