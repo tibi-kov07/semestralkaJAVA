@@ -23,4 +23,23 @@ public class Room  implements Serializable{
         this.locked = locked;
         this.lockRequirementMessage = lockRequirementMessage;
     }
+
+
+    public void setExit(String direction, Room neighbor) {
+        exits.put(direction.toLowerCase(), neighbor);
+    }
+
+    public Room getExit(String direction) {
+        return exits.get(direction.toLowerCase());
+    }
+
+    public Map<String, Room> getExits() {
+        return exits;
+    }
+
+
+    public void addItem(Item item) {items.add(item);}
+    public removeItem(Item item) {items.remove(item);}
+    public List<Item> getItems() {return items;}
+
 }
