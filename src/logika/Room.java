@@ -37,9 +37,28 @@ public class Room  implements Serializable{
         return exits;
     }
 
-
     public void addItem(Item item) {items.add(item);}
     public removeItem(Item item) {items.remove(item);}
     public List<Item> getItems() {return items;}
+
+    public String getId(){
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getDesctiption() {
+        return description;
+    }
+
+    public boolean isLocked() {
+        return locked;
+    }
+    public void setLocked (boolean locked) {
+        this.locked = locked;
+    }
+    public String getLockRequirementMessage() {
+        return lockRequirementMessage;
+    }
 
 }
