@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="semestralkaJAVA" options="--add-exports java.base/jdk.internal.classfile.impl.verifier=ALL-UNNAMED" />
+      <module name="semestralkaJAVA" options="" />
     </option>
   </component>
 </project>
