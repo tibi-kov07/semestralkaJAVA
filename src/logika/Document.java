@@ -7,7 +7,7 @@ public class Document extends Item {
     private final boolean evidence;
 
     public Document (String id, String name, String description, String readableContent, boolean evidence) {
-        super (id, name, description, false);
+        super (id, name, description, false); // Doplnený štvrtý argument pre predka Item
         this.readableContent = readableContent;
         this.evidence = evidence;
     }
