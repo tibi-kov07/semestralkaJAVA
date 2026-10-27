@@ -18,13 +18,13 @@ public class Game implements Serializable {
     }
  private void initGameWorld() {
         
-        Room sklad = new Room("sklad", "SKLAD", "Preberáš sa na studenej betónovej podlahe. Nad tebou bliká slabé svetlo. Dvere sú zamknuté. Na stene je napísané: 'Nemal si to zistiť.'", null, null, false, null);
-        Room chodba = new Room("chodba", "HLAVNÁ CHODBA", "Úzka chodba. Naľavo sú dvere do kancelárie, napravo do dielne. Na konci chodby vidíš schody vedúce k zamknutému východu.", null, null, true, "Na otvorenie je potrebný kľúč od chodby.");
-        Room kancelaria = new Room("kancelaria", "KANCELÁRIA", "Stôl, zamknutá zásuvka, fotografia správcu a dokumenty na stole.", null, null, false, null);
-        Room dielna = new Room("dielna", "DIELŇA", "Police s náradím, skrutkovač a náhradná poistka.", null, null, false, null);
-        Room kotolna = new Room("kotolna", "KOTOLŇA", "Starý kotol, ventily a skrinka s kľúčom.", null, null, false, null);
-        Room technicka = new Room("technicka", "TECHNICKÁ MIESTNOSŤ", "Elektrický panel, monitor kamier a zariadenie na prehrávanie záznamov.", null, null, true, "Na otvorenie je potrebný kľúč od technickej miestnosti.");
-        Room vystup = new Room("vystup", "VÝSTUP NA PRÍZEMIE", "Schody a zamknuté dvere do budovy.", null, null, true, "Na otvorenie treba kód z technickej miestnosti.");
+        Room sklad = new Room("sklad", "SKLAD", "Preberáš sa na studenej betónovej podlahe. Nad tebou bliká slabé svetlo. Dvere sú zamknuté. Na stene je napísané: 'Nemal si to zistiť.'", false, null);
+        Room chodba = new Room("chodba", "HLAVNÁ CHODBA", "Úzka chodba. Naľavo sú dvere do kancelárie, napravo do dielne. Na konci chodby vidíš schody vedúce k zamknutému východu.", true, "Na otvorenie je potrebný kľúč od chodby.");
+        Room kancelaria = new Room("kancelaria", "KANCELÁRIA", "Stôl, zamknutá zásuvka, fotografia správcu a dokumenty na stole.", false, null);
+        Room dielna = new Room("dielna", "DIELŇA", "Police s náradím, skrutkovač a náhradná poistka.", false, null);
+        Room kotolna = new Room("kotolna", "KOTOLŇA", "Starý kotol, ventily a skrinka s kľúčom.", false, null);
+        Room technicka = new Room("technicka", "TECHNICKÁ MIESTNOSŤ", "Elektrický panel, monitor kamier a zariadenie na prehrávanie záznamov.", true, "Na otvorenie je potrebný kľúč od technickej miestnosti.");
+        Room vystup = new Room("vystup", "VÝSTUP NA PRÍZEMIE", "Schody a zamknuté dvere do budovy.", true, "Na otvorenie treba kód z technickej miestnosti.");
 
         
         sklad.setExit("chodba", chodba);
