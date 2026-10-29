@@ -1,0 +1,7 @@
+id|name|description|roomId|isConsumable|isDocument|readableContent|isEvidence
+baterka|baterka|Umožní preskúmať tmavé časti.|sklad|false|false|null|false
+kluc_chodba|kluc od chodby|Odomkne dvere zo skladu.|sklad|false|false|null|false
+skrutkovac|skrutkovac|Používa sa na otvorenie krytu elektrického panela.|dielna|false|false|null|false
+poistka|poistka|Po vložení do panela obnoví napájanie.|dielna|true|false|null|false
+poznamka|poznamka s indiciou|Obsahuje informáciu potrebnú na otvorenie zásuvky alebo vyriešenie kódu.|kancelaria|false|true|Indícia pre ventily v kotolni: Nastav tlak na hodnotu 3-1-4.|false
+dokazny_dokument|dokazny dokument|Vysvetľuje motív únoscu a umožňuje dosiahnuť úplný koniec.|kancelaria|false|true|Dokument potvrdzuje, že správca Martin tajne organizoval nelegálnu činnosť v budove.|true
