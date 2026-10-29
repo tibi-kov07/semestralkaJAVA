@@ -16,10 +16,12 @@ public class Item implements Serializable {
     }
 
     public String getId() {
+
         return id;
     }
 
     public String getName() {
+
         return name;
     }
 
@@ -27,7 +29,13 @@ public class Item implements Serializable {
         return description;
     }
 
+    public boolean isConsumable(){
+
+        return consumable;
+    }
+
     public boolean isEvidence(){
+
         return false;
     }
 }
