@@ -1,0 +1,8 @@
+id|name|description|isLocked|lockRequirementMessage
+sklad|SKLAD|Preberáš sa na studenej betónovej podlahe. Nad tebou bliká slabé svetlo. Dvere sú zamknuté. Na stene je napísané: 'Nemal si to zistiť.'|false|null
+chodba|HLAVNÁ CHODBA|Úzka chodba. Naľavo sú dvere do kancelárie, napravo do dielne. Na konci chodby vidíš schody vedúce k zamknutému východu.|true|Na otvorenie je potrebný kľúč od chodby.
+kancelaria|KANCELÁRIA|Stôl, zamknutá zásuvka, fotografia správcu a dokumenty na stole.|false|null
+dielna|DIELŇA|Police s náradím, skrutkovač a náhradná poistka.|false|null
+kotolna|KOTOLŇA|Starý kotol, ventily a skrinka s kľúčom.|false|null
+technicka|TECHNICKÁ MIESTNOSŤ|Elektrický panel, monitor kamier a zariadenie na prehrávanie záznamov.|true|Na otvorenie je potrebný kľúč od technickej miestnosti.
+vystup|VÝSTUP NA PRÍZEMIE|Schody a zamknuté dvere do budovy.|true|Na otvorenie treba kód z technickej miestnosti.
