@@ -12,8 +12,7 @@
 ---
 
 ## 📋 O projekte
-Tento projekt je semestrálnou prácou z predmetu Java.
-Preberáš sa na studenej betónovej podlahe v temnom suteréne bez spomienok na to, ako ses sem dostal. Dvere sú zamknuté a na stene svieti mrazivý odkaz: „Nemal si to zistiť.“
+Preberáš sa na studenej betónovej podlahe v temnom suteréne bez spomienok na to, ako si sa sem dostal. Dvere sú zamknuté a na stene svieti mrazivý odkaz: „Nemal si to zistiť.“
 
 Tvojou hlavnou úlohou je prežiť, preskúmať tajomné priestory budovy, prekonávať zamknuté prekážky, riešiť technické hádanky (ako oprava elektriny či kotolne) a nájsť cestu na slobodu.
 
