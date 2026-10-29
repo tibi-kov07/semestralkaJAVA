@@ -76,7 +76,6 @@ class CommandHandlerTest {
         assertTrue(out().contains(description));
     }
 
-    // ---------- prehľadávanie ----------
 
     @Test
     void searchEmptyRoomFindsNothing() {
