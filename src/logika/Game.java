@@ -91,4 +91,36 @@ public class Game implements Serializable {
         System.out.println("\n💡 AKCIE: vezmi [predmet] | pouzi [predmet] | procti [predmet] | jdi [miestnost] | mluv martin | dokazy | uloz | nacitaj | konec");
     }
 
+    public void evaluateAndFinishGame() {
+        boolean hasDocument = player.getItemFromInventory("dokazny_dokument").isPresent();
+        boolean hasCameraRecord = player.getItemFromInventory("zaznam_z_kamery").isPresent();
+
+        if (gameState.isExitCodeObtained() && hasDocument && hasCameraRecord) {
+            triggerEnding("Úplné odhalenie");
+        } else {
+            triggerEnding("Útek bez dôkazov");
+        }
+    }
+
+    public void triggerEnding(String endingType) {
+        isRunning = false;
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("🏆 KONEC HRY: " + endingType);
+        System.out.println("--------------------------------------------------");
+
+        switch (endingType) {
+            case "Úplné odhalenie" -> System.out.println("Hráč má kód k východu a oba hlavné dôkazy; rozhodne sa počkať na políciu. Utečie, odovzdá dôkazy a identita i motív únoscu sa odhalia.");
+            case "Útek bez dôkazov" -> System.out.println("Hráč získa kód k východu, ale nemá všetky dôkazy alebo odíde okamžite. Hráč sa zachráni, ale vinníka nedokáže jednoznačne usvedčiť.");
+            default -> System.out.println("Hráč zvolí možnosť vzdať sa alebo ukončí príbeh bez úniku. Hráč zostane uväznený. Hra zobrazí neúspešný koniec.");
+        }
+    }
+
+    public void loadStateFrom(Game loadedGame) {
+        this.player = loadedGame.player;
+        this.gameState = loadedGame.gameState;
+    }
+
+    public Player getPlayer() { return player; }
+    public GameState getGameState() { return gameState; }
+    public boolean isRunning() { return isRunning; }
 }
