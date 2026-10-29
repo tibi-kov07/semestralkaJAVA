@@ -169,7 +169,7 @@ public class CommandHandler implements Serializable {
         System.out.println("✅ Získal si predmet: " + item.getName());
     }
 
-    /** Najprv hľadá presnú zhodu (názov alebo ID), až potom čiastočnú zhodu v názve. */
+
     private Optional<Item> findItem(Collection<Item> items, String query) {
         String q = normalize(query);
 
