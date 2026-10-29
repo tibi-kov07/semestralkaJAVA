@@ -63,4 +63,32 @@ public class Game implements Serializable {
 
     private void printCurrentStatusAndOptions() {
         Room current = player.getCurrentRoom();
+        System.out.println("\n--------------------------------------------------");
+        System.out.println("📍 LOKALITA: " + current.getName());
+        System.out.println(current.getDescription());
+        System.out.println("--------------------------------------------------");
+
+        System.out.println("📦 PREDMETY V MIESTNOSTI (vezmi [názov]):");
+        if (current.getItems().isEmpty()) {
+            System.out.println("   (Žiadne predmety tu neležia)");
+        } else {
+            current.getItems().forEach(item -> System.out.println("   -> " + item.getName() + " (" + item.getDescription() + ")"));
+        }
+
+        System.out.println("\n🚪 MOŽNÉ SMERY / PRECHODY (jdi [miestnosť]):");
+        current.getExits().forEach((direction, room) -> {
+            String lockStatus = room.isLocked() ? " 🔒 [ZAMKNUTÉ]" : " 🔓 [OTVORENÉ]";
+            System.out.println("   -> jdi " + direction + " (" + room.getName() + ")" + lockStatus);
+        });
+
+        System.out.println("\n🎒 TVOJ INVENTÁR (pouzi [predmet] / procti [dokument]):");
+        if (player.getInventory().isEmpty()) {
+            System.out.println("   (Prázdny inventár)");
+        } else {
+            player.getInventory().forEach(item -> System.out.println("   -> " + item.getName() + (item instanceof Document ? " [Čitateľný dokument]" : "")));
+        }
+
+        System.out.println("\n💡 AKCIE: vezmi [predmet] | pouzi [predmet] | procti [predmet] | jdi [miestnost] | mluv martin | dokazy | uloz | nacitaj | konec");
+    }
+
 }
